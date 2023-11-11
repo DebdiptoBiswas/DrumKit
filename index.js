@@ -35,6 +35,7 @@ function fnc(){
 }
 
 document.addEventListener("keydown",function(event){
+		buttonAnimation(event.key);
 	if(event.key === "w"){
 		var audio = new Audio("./sounds/crash.mp3");
 		audio.play();
@@ -64,3 +65,10 @@ document.addEventListener("keydown",function(event){
 		audio.play();
 	}
 })
+function buttonAnimation(currentKey){
+	var activeButton = document.querySelector("."+currentKey);
+	activeButton.classList.add("pressed");
+	setTimeout(function(){
+		activeButton.classList.remove("pressed");
+	}, 227);
+}
